@@ -14,6 +14,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  security.chromiumSuidSandbox.enable = true;
   systemd.generators = { systemd-gpt-auto-generator = "/dev/null"; };
 
   programs.sway = {

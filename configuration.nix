@@ -24,7 +24,9 @@
     enable = true;
     extraPackages = builtins.attrValues {
       inherit (pkgs)
-        bemenu swaylock swayidle foot brightnessctl grim i3status wl-clipboard gammastep;
+        bemenu swaylock swayidle foot brightnessctl grim i3status
+        wl-clipboard gammastep;
+      inherit (pkgs.gnome) adwaita-icon-theme gnome-theme-extra;
     };
   };
 

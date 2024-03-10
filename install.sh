@@ -41,3 +41,12 @@ nixos-install --root /mnt --no-root-passwd --flake github:tie-ling/nconf#qinghe
 
 poweroff
 
+# download gpg archive
+curl -LO https://github.com/tie-ling/gpg/raw/main/gpg-2024-02-07.tar.xz
+tar axf gpg-2024-02-07.tar.xz
+mv $(find -name 'gpg' -type d) ~/.gnupg
+
+# clone dotfiles repo
+git clone git@github.com:tie-ling/alpine-dots
+mv alpine-dots/.git ~/
+git reset --hard

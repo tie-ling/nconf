@@ -45,7 +45,11 @@
   programs.git.enable = true;
 
   home-manager.users.yc.home.stateVersion = "23.11";
-  home-manager.users.yc.programs.chromium.enable = false;
+  home-manager.users.yc.programs.chromium = {
+    enable = true;
+    package = pkgs.ungoogled-chromium;
+    commandlineArgs = ["--ozone-platform-hint=auto" "--enable-features=VaapiVideoDecodeLinuxGL,VaapiVideoEncoder,TouchpadOverscrollHistoryNavigation" "--js-flags=--jitless" "--start-maximized" "--disable-remote-fonts" "--disable-webgl" "--incognito" ];
+  };
 
   networking = {
     firewall.enable = true;

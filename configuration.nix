@@ -36,6 +36,7 @@
   console.useXkbConfig = true;
 
   services = {
+    tlp.enable = true;
     yggdrasil = {
       enable = true;
       openMulticastPort = false;

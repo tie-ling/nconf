@@ -47,6 +47,12 @@ tar axf gpg-2024-02-07.tar.xz
 mv $(find -name 'gpg' -type d) ~/.gnupg
 
 # clone dotfiles repo
-git clone git@github.com:tie-ling/alpine-dots
+git clone https://github.com/tie-ling/alpine-dots
 mv alpine-dots/.git ~/
 git reset --hard
+
+# clean up
+rm -rf old gpg-2024* alpine-dots
+
+# create mail dirs
+

@@ -146,7 +146,7 @@
     };
   };
   hardware.opengl.extraPackages = with pkgs; [ intel-media-driver ];
-  fonts.packages = [ pkgs.dejavu_fonts pkgs.noto-fonts-cjk-sans ];
+  fonts.packages = [ pkgs.dejavu_fonts pkgs.noto-fonts-cjk-sans pkgs.gyre-fonts ];
   fonts.fontconfig = {
     defaultFonts = {
       sansSerif = [ "DejaVu Sans" "Noto Sans CJK SC" ];

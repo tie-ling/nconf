@@ -49,8 +49,17 @@ git clone https://github.com/tie-ling/alpine-dots
 mv alpine-dots/.git ~/
 git reset --hard
 
+# enter Sway WM
+sway
+
+# clone config repo
+git clone git@github.com:tie-ling/nconf
+
 # clean up
 rm -rf old gpg-2024* alpine-dots
+
+# restart emacs
+systemctl restart --user emacs
 
 # clone repo
 git clone git@github.com:tie-ling/passwd ~/.password-store

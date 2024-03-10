@@ -14,7 +14,6 @@
   system.configurationRevision = lib.mkIf (inputs.self ? rev) inputs.self.rev;
 
   security.chromiumSuidSandbox.enable = true;
-  systemd.generators = { systemd-gpt-auto-generator = "/dev/null"; };
 
   programs.sway = {
     enable = true;

@@ -11,7 +11,7 @@
 
     nixosConfigurations.qinghe = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      specialArgs =  { hdd = "ata-INTEL_SSDSCKKF256G8H_BTLA81651HQR256J"; };
+      specialArgs = { hdd = "ata-INTEL_SSDSCKKF256G8H_BTLA81651HQR256J"; };
       modules = [
         ./configuration.nix
 

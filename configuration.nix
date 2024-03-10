@@ -138,15 +138,45 @@
       isNormalUser = true;
       packages = builtins.attrValues {
         inherit (pkgs)
-          mg emacs29-nox mu zathura yt-dlp mpv xournalpp pavucontrol
-          msmtp
-          texliveBasic
+          mg emacs29-nox mu zathura yt-dlp mpv xournalpp pavucontrol msmtp
           gpxsee qrencode;
-      } ++ [ (pkgs.pass.withExtensions (exts: [ exts.pass-otp ])) ];
+      } ++ [
+        (pkgs.pass.withExtensions (exts: [ exts.pass-otp ]))
+        (pkgs.texliveBasic.withPackages (ps: [
+          collection-basic
+          collection-mathscience
+          collection-pictures
+          collection-luatex
+          collection-langenglish
+          collection-langgerman
+          interval
+
+          ###### pdf manipulation tool
+          pdfjam # depends on pdfpages, geometry
+          # pdfpages and dependencies
+          pdfpages
+          eso-pic
+          atbegshi
+          pdflscape
+          ######
+
+          # unicode-math and deps
+          unicode-math
+          fontspec
+          realscripts
+          lualatex-math
+          # quotes
+          csquotes
+          # checks
+          chktex
+          lacheck
+        ]))
+      ];
     };
   };
-  hardware.opengl.extraPackages = with pkgs; [ intel-media-driver ];
-  fonts.packages = [ pkgs.dejavu_fonts pkgs.noto-fonts-cjk-sans pkgs.gyre-fonts ];
+  hardware.opengl.extraPackages = [ pkgs.intel-media-driver ];
+  fonts.packages =
+    [ pkgs.dejavu_fonts pkgs.noto-fonts-cjk-sans pkgs.gyre-fonts ];
   fonts.fontconfig = {
     defaultFonts = {
       sansSerif = [ "DejaVu Sans" "Noto Sans CJK SC" ];

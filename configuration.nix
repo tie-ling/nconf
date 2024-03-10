@@ -176,7 +176,7 @@
           gpxsee qrencode;
       } ++ [
         (pkgs.pass.withExtensions (exts: [ exts.pass-otp ]))
-        (pkgs.texliveBasic.withPackages (builtins.attrValues {
+        (pkgs.texliveBasic.withPackages (ps: builtins.attrValues {
           inherit (ps)
             collection-basic collection-mathscience collection-pictures
             collection-luatex collection-langenglish collection-langgerman

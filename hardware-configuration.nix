@@ -20,7 +20,11 @@
     fsType = "ext4";
   };
 
-  boot.initrd.luks.devices."root".device = "/dev/disk/by-id/${hdd}-part2";
+  boot.initrd.luks.devices."root" = {
+    device = "/dev/disk/by-id/${hdd}-part2";
+    allowDiscards = true;
+    bypassWorkqueues = true;
+  };
 
   fileSystems."/boot" = {
     device = "/dev/disk/by-id/${hdd}-part1";
@@ -29,7 +33,11 @@
 
   swapDevices = [{
     device = "/dev/disk/by-id/${hdd}-part3";
-    randomEncryption.enable = true;
+    randomEncryption = {
+      enable = true;
+      allowDiscards = true;
+    };
+    discardPolicy = "once";
   }];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking

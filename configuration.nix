@@ -143,7 +143,9 @@
       isNormalUser = true;
       packages = builtins.attrValues {
         inherit (pkgs)
-          mg emacs29-nox mu zathura yt-dlp mpv xournalpp pavucontrol msmtp
+          mg emacs29-nox mu zathura yt-dlp mpv xournalpp pavucontrol
+          msmtp
+          texliveBasic
           gpxsee qrencode;
       } ++ [ (pkgs.pass.withExtensions (exts: [ exts.pass-otp ])) ];
     };

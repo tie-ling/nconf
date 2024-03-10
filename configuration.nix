@@ -100,7 +100,6 @@
       isNormalUser = true;
      packages = with pkgs; [
        mg emacs29-nox
-       ungoogled-chromium
      ];
 
     };

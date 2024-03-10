@@ -10,6 +10,8 @@ sgdisk --zap-all $DISK
 # create two partitions, align both partition beginning and end
 sgdisk --align-end --new 1:0:+4G --new 2:0:0 --typecode 1:ef00 --typecode 2:8304 $DISK
 
+sleep 1
+
 # format esp
 mkfs.vfat -n ESP ${DISK}-part1
 

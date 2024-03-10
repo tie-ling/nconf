@@ -2,7 +2,7 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 
 {
   # Use the systemd-boot EFI boot loader.
@@ -158,6 +158,7 @@
     };
     hosts = { "200:8bcd:55f4:becc:4d85:2fa6:2ed2:5eba" = [ "tl.yc" ]; };
   };
+  nix.registry.nixpkgs.flake = inputs.nixpkgs;
 
   users.mutableUsers = false;
   users.users = {

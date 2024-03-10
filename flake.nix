@@ -5,13 +5,18 @@
     inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs, home-manager }: {
+  outputs = { self, nixpkgs, home-manager }@inputs: {
 
     formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt;
 
     nixosConfigurations.qinghe = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
-      specialArgs = { hdd = "ata-INTEL_SSDSCKKF256G8H_BTLA81651HQR256J"; };
+
+      specialArgs = {
+        hdd = "ata-INTEL_SSDSCKKF256G8H_BTLA81651HQR256J";
+        inherit inputs;
+      };
+
       modules = [
         ./configuration.nix
 

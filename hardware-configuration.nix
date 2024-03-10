@@ -10,7 +10,7 @@
   ];
 
   boot.initrd.availableKernelModules =
-    [ "xhci_pci" "ahci" "uas" "sd_mod" "rtsx_pci_sdmmc" ];
+    [ "xhci_pci" "ahci" "uas" "sd_mod" "nvme" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];

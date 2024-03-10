@@ -13,7 +13,7 @@
       system = "x86_64-linux";
 
       specialArgs = {
-        hdd = "ata-INTEL_SSDSCKKF256G8H_BTLA81651HQR256J";
+        hdd = "nvme-SAMSUNG_MZVLV256HCHP-000H1_S2CSNA0J547878";
         inherit inputs;
       };
 

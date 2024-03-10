@@ -94,6 +94,7 @@
 
     networking.firewall = {
       # ports are also opened by other programs
+      # open ports temporarily with nixos-firewall-tool
       allowedTCPPorts = [
         # nfsv4
         2049
@@ -102,6 +103,9 @@
     };
 
     systemd.services.rtorrent.serviceConfig.LimitNOFILE = 10240;
+
+    security.lockKernelModules = false;
+
     services = {
       zfs = {
         autoScrub = {

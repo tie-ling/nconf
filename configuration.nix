@@ -9,6 +9,10 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  # Let 'nixos-version --json' know about the Git revision
+  # of this flake.
+  system.configurationRevision = lib.mkIf (inputs.self ? rev) inputs.self.rev;
+
   security.chromiumSuidSandbox.enable = true;
   systemd.generators = { systemd-gpt-auto-generator = "/dev/null"; };
 
@@ -121,9 +125,8 @@
     (final: prev: rec {
       zathura_core = prev.zathuraPkgs.zathura_core.overrideAttrs
         (o: { patches = [ ./zathura-restart_syscall.patch ]; });
-      zathura = prev.zathuraPkgs.zathuraWrapper.override {
-        inherit zathura_core;
-      };
+      zathura =
+        prev.zathuraPkgs.zathuraWrapper.override { inherit zathura_core; };
     })
   ];
 

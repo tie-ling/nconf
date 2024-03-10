@@ -9,33 +9,10 @@
 
     formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt;
 
-    nixosConfigurations.qinghe = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-
-      specialArgs = {
-        hdd = "nvme-SAMSUNG_MZVLV256HCHP-000H1_S2CSNA0J547878";
-        inherit inputs;
-      };
-
-      modules = [
-        ./configuration.nix
-
-        ./hardware-configuration.nix
-
-        home-manager.nixosModules.home-manager
-        {
-          home-manager.useGlobalPkgs = false;
-          home-manager.useUserPackages = true;
-        }
-
-        ({ pkgs, ... }: {
-          # Let 'nixos-version --json' know about the Git revision
-          # of this flake.
-          system.configurationRevision = nixpkgs.lib.mkIf (self ? rev) self.rev;
-
-        })
-      ];
-    };
+    nixosConfigurations.qinghe = nixpkgs.lib.nixosSystem (import ./desktop.nix {
+      hdd = "nvme-SAMSUNG_MZVLV256HCHP-000H1_S2CSNA0J547878";
+      inherit inputs;
+    });
 
   };
 }

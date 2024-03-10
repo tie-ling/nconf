@@ -117,7 +117,7 @@
         inherit (pkgs)
           mg emacs29-nox mu zathura yt-dlp mpv xournalpp pavucontrol msmtp
           qrencode;
-      };
+      } ++ [ pkgs.pass.withExtensions (exts: [ exts.pass-otp ]) ];
     };
   };
   hardware.opengl.extraPackages = with pkgs; [ intel-media-driver intel-ocl ];
@@ -136,7 +136,6 @@
 
   # Enable sound.
   sound.enable = true;
-
 
   # Most users should NEVER change this value after the initial install, for any reason,
   # even if you've upgraded your system to a new NixOS release.

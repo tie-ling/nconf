@@ -17,7 +17,7 @@
 
   fileSystems."/" = {
     device = "/dev/mapper/root";
-    fsType = "ext4";
+    fsType = "xfs";
   };
 
   boot.initrd.luks.devices."root" = {
@@ -32,12 +32,7 @@
   };
 
   swapDevices = [{
-    device = "/dev/disk/by-id/${hdd}-part3";
-    randomEncryption = {
-      enable = true;
-      allowDiscards = true;
-    };
-    discardPolicy = "once";
+    device = "/swapfile";
   }];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking

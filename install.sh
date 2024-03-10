@@ -54,5 +54,15 @@ git reset --hard
 # clean up
 rm -rf old gpg-2024* alpine-dots
 
-# create mail dirs
+# clone repo
+git clone git@github.com:tie-ling/passwd ~/.password-store
+git clone git@github.com:tie-ling/tub ~/tub
+git -C ~ remote rm origin
+git -C ~ remote add origin git@github.com:tie-ling/alpine-dots
+git -C ~ push -u origin main
 
+# create mail dirs
+mkdir -p ~/Mail/{posteo,gmail}
+mu init --maildir ~/Mail --my-address yguo@posteo.net --my-address gyuchen86@gmail.com
+mbsync -a
+mu index

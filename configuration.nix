@@ -144,7 +144,7 @@
         inherit (pkgs)
           mg emacs29-nox mu zathura yt-dlp mpv xournalpp pavucontrol msmtp
           gpxsee qrencode;
-      } ++ [ pkgs.pass.withExtensions (exts: [ exts.pass-otp ]) ];
+      } ++ [ (pkgs.pass.withExtensions (exts: [ exts.pass-otp ])) ];
     };
   };
   hardware.opengl.extraPackages = with pkgs; [ intel-media-driver intel-ocl ];

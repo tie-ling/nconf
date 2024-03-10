@@ -5,7 +5,10 @@
 
 let hdd = "ata-INTEL_SSDSCKKF256G8H_BTLA81651HQR256J";
 in {
-  imports = [ (modulesPath + "/installer/scan/not-detected.nix") ];
+  imports = [
+    (modulesPath + "/profiles/hardened.nix")
+    (modulesPath + "/installer/scan/not-detected.nix")
+  ];
 
   boot.initrd.availableKernelModules =
     [ "xhci_pci" "ahci" "uas" "sd_mod" "rtsx_pci_sdmmc" ];

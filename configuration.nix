@@ -152,6 +152,7 @@
   fonts.fontconfig = {
     defaultFonts = {
       sansSerif = [ "DejaVu Sans" "Noto Sans CJK SC" ];
+      monospace = [ "DejaVu Sans Mono" "Noto Sans Mono CJK SC" ];
       serif = [ "DejaVu Serif" "Noto Sans CJK SC" ];
     };
   };

@@ -1,4 +1,4 @@
-{ hdd, inputs, ... }:
+{ hdd, inputs, hostname, ... }:
 let inherit (inputs) home-manager;
 in {
   system = "x86_64-linux";
@@ -7,6 +7,8 @@ in {
 
   modules = [
     ./configuration.nix
+
+    ({ networking.hostName = hostname; })
 
     ./hardware-configuration.nix
 

@@ -14,5 +14,10 @@
       inherit inputs;
     });
 
+    nixosConfigurations.yinzhou = nixpkgs.lib.nixosSystem (import ./desktop.nix {
+      hdd = "ata-INTEL_SSDSCKKF256G8H_BTLA81651HQR256J";
+      inherit inputs;
+    });
+
   };
 }

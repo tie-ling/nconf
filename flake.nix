@@ -22,5 +22,10 @@
         inherit inputs;
       });
 
+    nixosConfigurations.tieling = nixpkgs.lib.nixosSystem (import ./server.nix {
+      hostname = "tieling";
+      inherit inputs;
+    });
+
   };
 }

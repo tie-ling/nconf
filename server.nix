@@ -1,16 +1,16 @@
-{ hdd, inputs, hostname, ... }:
+{ inputs, hostname, ... }:
 let inherit (inputs) home-manager;
 in {
   system = "x86_64-linux";
 
-  specialArgs = { inherit hdd inputs; };
+  specialArgs = { inherit inputs; };
 
   modules = [
-    ./desktop-configuration.nix
+    ./server-configuration.nix
 
     ({ networking.hostName = hostname; })
 
-    ./desktop-hardware-configuration.nix
+    ./server-hardware-configuration.nix
 
     home-manager.nixosModules.home-manager
     {

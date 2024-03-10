@@ -176,35 +176,25 @@
           gpxsee qrencode;
       } ++ [
         (pkgs.pass.withExtensions (exts: [ exts.pass-otp ]))
-        (pkgs.texliveBasic.withPackages (ps: [
-          collection-basic
-          collection-mathscience
-          collection-pictures
-          collection-luatex
-          collection-langenglish
-          collection-langgerman
-          interval
+        (pkgs.texliveBasic.withPackages (builtins.attrValues {
+          inherit (ps)
+            collection-basic collection-mathscience collection-pictures
+            collection-luatex collection-langenglish collection-langgerman
+            interval
 
-          ###### pdf manipulation tool
-          pdfjam # depends on pdfpages, geometry
-          # pdfpages and dependencies
-          pdfpages
-          eso-pic
-          atbegshi
-          pdflscape
-          ######
+            ###### pdf manipulation tool
+            pdfjam # depends on pdfpages, geometry
+            # pdfpages and dependencies
+            pdfpages eso-pic atbegshi pdflscape
+            ######
 
-          # unicode-math and deps
-          unicode-math
-          fontspec
-          realscripts
-          lualatex-math
-          # quotes
-          csquotes
-          # checks
-          chktex
-          lacheck
-        ]))
+            # unicode-math and deps
+            unicode-math fontspec realscripts lualatex-math
+            # quotes
+            csquotes
+            # checks
+            chktex lacheck;
+        }))
       ];
     };
   };

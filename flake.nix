@@ -14,6 +14,9 @@
       modules = [
         ./configuration.nix
 
+        ./hardware-configuration.nix
+        { hdd = "ata-INTEL_SSDSCKKF256G8H_BTLA81651HQR256J"; }
+
         home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = false;

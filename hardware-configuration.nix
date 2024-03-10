@@ -3,6 +3,7 @@
 # to /etc/nixos/configuration.nix instead.
 { config, lib, pkgs, modulesPath, ... }:
 
+let hdd = "ata-INTEL_SSDSCKKF256G8H_BTLA81651HQR256J"; in
 {
   imports =
     [ (modulesPath + "/installer/scan/not-detected.nix")
@@ -14,17 +15,23 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/66583f34-4a91-4912-9da0-67876747a0c5";
+    { device = "/dev/mapper/root";
       fsType = "ext4";
     };
 
-  boot.initrd.luks.devices."root".device = "/dev/disk/by-uuid/fa46446d-8e52-4190-aa21-d3ac4855fe9f";
+  boot.initrd.luks.devices."root".device = "/dev/disk/by-id/${hdd}-part2";
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/36FB-5678";
+    { device = "/dev/disk/by-id/${hdd}-part1";
       fsType = "vfat";
     };
 
+  swapDevices = [
+    {
+      device = "/dev/disk/by-id/${hdd}-part3";
+      randomEncryption.enable = true;
+    }
+  ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's

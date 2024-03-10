@@ -22,7 +22,26 @@
     };
   };
 
+  services.xserver = {
+    layout = "yc";
+    extraLayouts."yc" = {
+      description = "my layout";
+      languages = [ "eng" ];
+      symbolsFile = ./ergo-keymap-yc.txt;
+    };
+  };
+  console.useXkbConfig = true;
+
   services = {
+    yggdrasil = {
+      enable = true;
+      openMulticastPort = false;
+      extraArgs = [ "-loglevel" "error" ];
+      settings.Peers =
+        #curl -o test.html https://publicpeers.neilalexander.dev/
+        # grep -e 'tls://' -e 'tcp://' -e 'quic://' test.html | grep online | sed 's|<td id="address">|"|' | sed 's|</td><td.*|"|g' | sort | wl-copy -n
+        (import ./yggdrasil-peers.nix);
+    };
     dnscrypt-proxy2 = {
       enable = true;
       upstreamDefaults = true;
@@ -51,6 +70,20 @@
       alsa.enable = true;
       pulse.enable = true;
     };
+  };
+
+  programs.tmux = {
+    enable = true;
+    keyMode = "emacs";
+    newSession = true;
+    terminal = "tmux-direct";
+    extraConfig = ''
+      unbind C-b
+      unbind f7
+      set -u prefix
+      set -g prefix f7
+      bind -N "Send the prefix key" f7 send-prefix
+    '';
   };
 
   security = {
@@ -126,6 +159,7 @@
     hosts = { "200:8bcd:55f4:becc:4d85:2fa6:2ed2:5eba" = [ "tl.yc" ]; };
   };
 
+  users.mutableUsers = false;
   users.users = {
     yc = {
       initialHashedPassword =

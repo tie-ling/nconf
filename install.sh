@@ -16,7 +16,7 @@ sleep 1
 mkfs.vfat -n ESP ${DISK}-part1
 
 # format encrypted root
-cryptsetup -q luksFormat  --type luks2 --key-file=/root/diskpw ${DISK}-part2
+cryptsetup --batch-mode luksFormat  --type luks2 --key-file=/root/diskpw ${DISK}-part2
 cryptsetup luksOpen --allow-discards --key-file=/root/diskpw ${DISK}-part2 root
 
 # format encrypted container

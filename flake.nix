@@ -1,5 +1,9 @@
 {
   inputs.nixpkgs.url = "nixpkgs/nixos-23.11";
+    inputs.home-manager = {
+      url = "github:nix-community/home-manager/release-23.11";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
   outputs = { self, nixpkgs }: {
 
@@ -8,6 +12,12 @@
       modules =
         [
           ./configuration.nix
+
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = false;
+              home-manager.useUserPackages = true;
+            }
 
           ({ pkgs, ... }: {
             # Let 'nixos-version --json' know about the Git revision

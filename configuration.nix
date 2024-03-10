@@ -44,6 +44,8 @@
 
   programs.git.enable = true;
 
+  home-manager.users.yc.programs.chromium.enable = false;
+
   networking = {
     firewall.enable = true;
     networkmanager = {

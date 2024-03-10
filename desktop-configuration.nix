@@ -36,6 +36,8 @@
   console.useXkbConfig = true;
 
   services = {
+    # workaround for hardened profile
+    logrotate.checkConfig = false;
     tlp.enable = true;
     yggdrasil = {
       enable = true;

@@ -107,6 +107,8 @@
     security.lockKernelModules = false;
 
     services = {
+      # workaround for hardened profile
+      logrotate.checkConfig = false;
       zfs = {
         autoScrub = {
           enable = true;

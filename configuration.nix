@@ -197,7 +197,7 @@
             inherit (ps)
               collection-basic collection-mathscience collection-pictures
               collection-luatex collection-langenglish collection-langgerman
-              interval
+              interval parskip
 
               ###### pdf manipulation tool
               pdfjam # depends on pdfpages, geometry

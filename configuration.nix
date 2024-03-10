@@ -24,7 +24,7 @@
     enable = true;
     extraPackages = builtins.attrValues {
       inherit (pkgs)
-        bemenu swaylock swayidle foot brightnessctl grim i3status
+        bemenu swaylock swayidle foot brightnessctl grim i3status pinentry-qt
         wl-clipboard gammastep;
       inherit (pkgs.gnome) adwaita-icon-theme gnome-themes-extra;
     };
@@ -51,6 +51,11 @@
     commandLineArgs = ["--ozone-platform-hint=auto" "--enable-features=VaapiVideoDecodeLinuxGL,VaapiVideoEncoder,TouchpadOverscrollHistoryNavigation" "--js-flags=--jitless" "--start-maximized" "--disable-remote-fonts" "--disable-webgl" "--incognito" ];
   };
 
+  programs.gnupg.agent = {
+    enable = true;
+    enableSSHSupport = true;
+    pinentryFlavor = "qt";
+  };
   networking = {
     firewall.enable = true;
     networkmanager = {

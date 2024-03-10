@@ -147,7 +147,7 @@
       } ++ [ (pkgs.pass.withExtensions (exts: [ exts.pass-otp ])) ];
     };
   };
-  hardware.opengl.extraPackages = with pkgs; [ intel-media-driver intel-ocl ];
+  hardware.opengl.extraPackages = with pkgs; [ intel-media-driver ];
   fonts.packages = [ pkgs.dejavu_fonts pkgs.noto-fonts-cjk-sans ];
   xdg.portal = {
     enable = true;

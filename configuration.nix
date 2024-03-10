@@ -63,7 +63,7 @@
       ensureProfiles.profiles = {
                          home-wifi = {
                    connection = {
-                     id = "TP-Link_48C2";
+                     id = "fuclw";
                      permissions = "";
                      type = "wifi";
                    };
@@ -79,7 +79,7 @@
                    wifi = {
                      mac-address-blacklist = "";
                      mode = "infrastructure";
-                     ssid = "Home Wi-Fi";
+                     ssid = "TP-Link_48C2";
                    };
                    wifi-security = {
                      auth-alg = "open";

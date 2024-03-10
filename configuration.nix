@@ -26,10 +26,35 @@
     };
   };
 
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    pulse.enable = true;
+  services = {
+    dnscrypt-proxy2 = {
+      enable = true;
+      upstreamDefaults = true;
+      settings = { ipv6_servers = true; };
+    };
+    emacs = {
+      enable = true;
+      package = ((pkgs.emacsPackagesFor pkgs.emacs29-nox).emacsWithPackages
+        (epkgs:
+          builtins.attrValues {
+            inherit (epkgs) mu4e nix-mode magit pyim pyim-basedict auctex;
+            inherit (epkgs.treesit-grammars) with-all-grammars;
+          }));
+      defaultEditor = true;
+    };
+    logind = {
+      extraConfig = ''
+        HandlePowerKey=suspend
+      '';
+      lidSwitch = "suspend";
+      lidSwitchDocked = "ignore";
+      lidSwitchExternalPower = "suspend";
+    };
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      pulse.enable = true;
+    };
   };
 
   security = {
@@ -68,8 +93,10 @@
   };
   networking = {
     firewall.enable = true;
+    nameservers = [ "127.0.0.1" ];
     networkmanager = {
       enable = true;
+      dns = "none";
       ensureProfiles.profiles = {
         home-wifi = {
           connection = {
@@ -116,7 +143,7 @@
       packages = builtins.attrValues {
         inherit (pkgs)
           mg emacs29-nox mu zathura yt-dlp mpv xournalpp pavucontrol msmtp
-          qrencode;
+          gpxsee qrencode;
       } ++ [ pkgs.pass.withExtensions (exts: [ exts.pass-otp ]) ];
     };
   };

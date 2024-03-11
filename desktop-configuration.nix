@@ -4,7 +4,14 @@
 
 { config, lib, pkgs, inputs, ... }:
 
-{
+let
+  my-emacs = ((pkgs.emacsPackagesFor pkgs.emacs29-nox).emacsWithPackages (epkgs:
+    builtins.attrValues {
+      inherit (epkgs) mu4e nix-mode magit pyim pyim-basedict auctex;
+      inherit (epkgs.treesit-grammars) with-all-grammars;
+    }));
+
+in {
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -53,17 +60,7 @@
       upstreamDefaults = true;
       settings = { ipv6_servers = true; };
     };
-    emacs = {
-      enable = true;
-      install = true;
-      package = ((pkgs.emacsPackagesFor pkgs.emacs29-nox).emacsWithPackages
-        (epkgs:
-          builtins.attrValues {
-            inherit (epkgs) mu4e nix-mode magit pyim pyim-basedict auctex;
-            inherit (epkgs.treesit-grammars) with-all-grammars;
-          }));
-      defaultEditor = true;
-    };
+
     logind = {
       extraConfig = ''
         HandlePowerKey=suspend
@@ -193,6 +190,7 @@
         inherit (pkgs)
           mg emacs29-nox mu zathura yt-dlp mpv xournalpp pavucontrol msmtp isync
           gpxsee qrencode;
+        inherit my-emacs;
       } ++ [
         (pkgs.pass.withExtensions (exts: [ exts.pass-otp ]))
         (pkgs.texliveBasic.withPackages (ps:

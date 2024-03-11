@@ -55,6 +55,7 @@
     };
     emacs = {
       enable = true;
+      install = true;
       package = ((pkgs.emacsPackagesFor pkgs.emacs29-nox).emacsWithPackages
         (epkgs:
           builtins.attrValues {

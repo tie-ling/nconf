@@ -188,7 +188,7 @@ in {
       isNormalUser = true;
       packages = builtins.attrValues {
         inherit (pkgs)
-          mg emacs29-nox mu zathura yt-dlp mpv xournalpp pavucontrol msmtp isync
+          mg mu zathura yt-dlp mpv xournalpp pavucontrol msmtp isync
           gpxsee qrencode;
         inherit my-emacs;
       } ++ [

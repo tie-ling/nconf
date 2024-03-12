@@ -30,6 +30,10 @@ in {
         wl-mirror wl-clipboard gammastep;
       inherit (pkgs.gnome) adwaita-icon-theme gnome-themes-extra;
     };
+    wrapperFeatures = {
+      gtk = true;
+      base = true;
+    };
   };
 
   services.xserver = {

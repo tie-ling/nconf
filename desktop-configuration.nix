@@ -121,7 +121,6 @@ in {
       "--disable-smooth-scrolling"
       "--gtk-version=4"
       "--disable-webgl"
-      "--incognito"
     ];
   };
 

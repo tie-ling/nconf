@@ -221,7 +221,8 @@ in {
   };
   hardware.opengl.extraPackages = [ pkgs.intel-media-driver ];
   fonts.packages = builtins.attrValues {
-    inherit (pkgs) dejavu_fonts noto-fonts-cjk-sans gyre-fonts stix-two;
+    inherit (pkgs)
+      dejavu_fonts noto-fonts-cjk-sans gyre-fonts stix-two julia-mono;
   };
   fonts.fontconfig = {
     defaultFonts = {

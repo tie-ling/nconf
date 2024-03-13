@@ -191,8 +191,8 @@ in {
       isNormalUser = true;
       packages = builtins.attrValues {
         inherit (pkgs)
-          mg mu zathura yt-dlp mpv xournalpp pavucontrol msmtp isync
-          gpxsee qrencode;
+          mg mu zathura yt-dlp mpv xournalpp pavucontrol msmtp isync gpxsee
+          qrencode;
         inherit my-emacs;
       } ++ [
         (pkgs.pass.withExtensions (exts: [ exts.pass-otp ]))
@@ -220,8 +220,9 @@ in {
     };
   };
   hardware.opengl.extraPackages = [ pkgs.intel-media-driver ];
-  fonts.packages =
-    [ pkgs.dejavu_fonts pkgs.noto-fonts-cjk-sans pkgs.gyre-fonts ];
+  fonts.packages = builtins.attrValues {
+    inherit (pkgs) dejavu_fonts noto-fonts-cjk-sans gyre-fonts stix-two;
+  };
   fonts.fontconfig = {
     defaultFonts = {
       sansSerif = [ "DejaVu Sans" "Noto Sans CJK SC" ];

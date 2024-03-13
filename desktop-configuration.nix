@@ -226,9 +226,9 @@ in {
   };
   fonts.fontconfig = {
     defaultFonts = {
-      sansSerif = [ "DejaVu Sans" "Noto Sans CJK SC" ];
-      monospace = [ "DejaVu Sans Mono" "Noto Sans Mono CJK SC" ];
-      serif = [ "DejaVu Serif" "Noto Sans CJK SC" ];
+      sansSerif = [ "DejaVu Serif" "STIX Two Text" "Noto Sans CJK SC" ];
+      monospace = [ "JuliaMono" "DejaVu Sans Mono" "Noto Sans Mono CJK SC" ];
+      serif = [ "DejaVu Serif" "STIX Two Text" "Noto Sans CJK SC" ];
     };
   };
   xdg.portal = {

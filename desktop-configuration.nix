@@ -5,7 +5,7 @@
 { config, lib, pkgs, inputs, ... }:
 
 let
-  my-emacs = ((pkgs.emacsPackagesFor pkgs.emacs29-nox).emacsWithPackages (epkgs:
+  my-emacs = ((pkgs.emacsPackagesFor pkgs.emacs29-pgtk).emacsWithPackages (epkgs:
     builtins.attrValues {
       inherit (epkgs) mu4e nix-mode magit pyim pyim-basedict auctex;
       inherit (epkgs.treesit-grammars) with-all-grammars;
@@ -47,6 +47,12 @@ in {
   console.useXkbConfig = true;
 
   services = {
+    emacs = {
+      enable = true;
+      package = my-emacs;
+      defaultEditor = true;
+      install = true;
+    };
     # workaround for hardened profile
     logrotate.checkConfig = false;
     tlp.enable = true;
@@ -193,7 +199,6 @@ in {
         inherit (pkgs)
           mg mu zathura yt-dlp mpv xournalpp pavucontrol msmtp isync gpxsee
           qrencode;
-        inherit my-emacs;
       } ++ [
         (pkgs.pass.withExtensions (exts: [ exts.pass-otp ]))
         (pkgs.texliveBasic.withPackages (ps:

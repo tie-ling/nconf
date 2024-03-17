@@ -198,7 +198,7 @@ in {
       packages = builtins.attrValues {
         inherit (pkgs)
           mg mu zathura yt-dlp mpv xournalpp pavucontrol msmtp isync gpxsee
-          qrencode;
+          qrencode python3;
       } ++ [
         (pkgs.pass.withExtensions (exts: [ exts.pass-otp ]))
         (pkgs.texliveBasic.withPackages (ps:

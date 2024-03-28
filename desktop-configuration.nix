@@ -238,7 +238,6 @@ in {
       "--start-maximized"
       "--disable-remote-fonts"
       "--disable-smooth-scrolling"
-      "--gtk-version=4"
       "--disable-webgl"
     ];
   };

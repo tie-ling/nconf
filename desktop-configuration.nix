@@ -154,7 +154,7 @@ in {
       ensureProfiles.profiles = {
         home-wifi = {
           connection = {
-            id = "fuclw";
+            id = "new-wifi";
             permissions = "";
             type = "wifi";
           };
@@ -170,12 +170,12 @@ in {
           wifi = {
             mac-address-blacklist = "";
             mode = "infrastructure";
-            ssid = "TP-Link_48C2";
+            ssid = "new-wifi";
           };
           wifi-security = {
             auth-alg = "open";
             key-mgmt = "wpa-psk";
-            psk = "77017543";
+            psk = "hellokitty";
           };
         };
 
@@ -209,6 +209,7 @@ in {
               collection-luatex collection-langenglish collection-langgerman
               interval parskip
 
+              koma-script
               ###### pdf manipulation tool
               pdfjam # depends on pdfpages, geometry
               # pdfpages and dependencies

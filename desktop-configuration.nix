@@ -202,7 +202,7 @@ in {
           qrencode python3 goimapnotify;
       } ++ [
         (pkgs.pass.withExtensions (exts: [ exts.pass-otp ]))
-        (pkgs.texliveBasic.withPackages (ps:
+        (pkgs.texliveMedium.withPackages (ps:
           builtins.attrValues {
             inherit (ps)
               collection-basic collection-mathscience collection-pictures
@@ -216,8 +216,6 @@ in {
               pdfpages eso-pic atbegshi pdflscape
               ######
 
-              # unicode-math example page
-              ragged2e
               # unicode-math and deps
               unicode-math fontspec realscripts lualatex-math
               # quotes

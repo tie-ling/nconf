@@ -202,7 +202,7 @@ in {
           qrencode python3 goimapnotify;
       } ++ [
         (pkgs.pass.withExtensions (exts: [ exts.pass-otp ]))
-        (pkgs.texliveMedium.withPackages (ps:
+        (pkgs.texliveBasic.withPackages (ps:
           builtins.attrValues {
             inherit (ps)
               collection-basic collection-mathscience collection-pictures

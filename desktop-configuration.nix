@@ -217,7 +217,7 @@ in {
               ######
 
               # times font
-              newtx
+              newtx fontaxes etoolbox scalefnt xkeyval
               # unicode-math and deps
               unicode-math fontspec realscripts lualatex-math
               # quotes

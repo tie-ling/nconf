@@ -216,6 +216,8 @@ in {
               pdfpages eso-pic atbegshi pdflscape
               ######
 
+              # times font
+              newtx
               # unicode-math and deps
               unicode-math fontspec realscripts lualatex-math
               # quotes

@@ -216,6 +216,9 @@ in {
               pdfpages eso-pic atbegshi pdflscape
               ######
 
+              # latex kurs tu berlin SUCC
+              blindtext
+
               # times font
               newtx fontaxes etoolbox xkeyval xstring mathtools
               # unicode-math and deps

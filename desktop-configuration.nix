@@ -199,7 +199,7 @@ in {
       packages = builtins.attrValues {
         inherit (pkgs)
           mg mu zathura yt-dlp mpv xournalpp pavucontrol msmtp isync gpxsee
-          qrencode python3 goimapnotify;
+          qrencode python3 goimapnotify julia;
       } ++ [
         (pkgs.pass.withExtensions (exts: [ exts.pass-otp ]))
         (pkgs.texliveBasic.withPackages (ps:

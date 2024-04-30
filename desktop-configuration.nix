@@ -7,7 +7,7 @@
 let
   my-emacs = ((pkgs.emacsPackagesFor pkgs.emacs29-pgtk).emacsWithPackages (epkgs:
     builtins.attrValues {
-      inherit (epkgs) mu4e nix-mode magit pyim pyim-basedict auctex;
+      inherit (epkgs) mu4e nix-mode magit pyim pyim-basedict auctex julia-mode;
       inherit (epkgs.treesit-grammars) with-all-grammars;
     }));
 

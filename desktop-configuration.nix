@@ -219,6 +219,9 @@ in {
               # latex kurs tu berlin SUCC
               blindtext
 
+              # bank statement
+              bankstatement
+
               # times font
               newtx fontaxes etoolbox xkeyval xstring mathtools
               # unicode-math and deps

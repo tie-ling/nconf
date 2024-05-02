@@ -225,7 +225,7 @@ in {
               # times font
               newtx fontaxes etoolbox xkeyval xstring mathtools
               # unicode-math and deps
-              unicode-math fontspec realscripts lualatex-math
+              unicode-math fontspec realscripts lualatex-math xpatch
               # quotes
               csquotes
               # checks

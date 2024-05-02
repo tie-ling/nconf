@@ -220,7 +220,7 @@ in {
               blindtext
 
               # bank statement
-              bankstatement booktabs
+              bankstatement booktabs datatool
 
               # times font
               newtx fontaxes etoolbox xkeyval xstring mathtools

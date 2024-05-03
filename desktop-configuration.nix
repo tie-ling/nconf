@@ -203,11 +203,12 @@ in {
           qrencode python3 goimapnotify julia;
       } ++ [
         (pkgs.pass.withExtensions (exts: [ exts.pass-otp ]))
-        (pkgs.texliveBasic.withPackages (ps:
+        (pkgs.texliveConTeXt.withPackages (ps:
           builtins.attrValues {
             inherit (ps)
               collection-basic collection-mathscience collection-pictures
-              collection-luatex collection-langenglish collection-langgerman
+              collection-luatex collection-langenglish
+              collection-langgerman
               interval parskip
 
               koma-script

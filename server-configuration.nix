@@ -8,6 +8,7 @@
   };
   config = {
 
+    environment.memoryAllocator.provider = "libc";
     nix.settings.substituters =
       lib.mkBefore [ "https://mirror.sjtu.edu.cn/nix-channels/store" ];
 

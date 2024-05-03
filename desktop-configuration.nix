@@ -258,6 +258,8 @@ in {
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
 
+  environment.memoryAllocator.provider = "libc";
+
   # Enable sound.
   sound.enable = true;
 

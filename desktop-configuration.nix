@@ -211,7 +211,6 @@ in {
               collection-langgerman
               interval parskip
 
-              koma-script
               ###### pdf manipulation tool
               pdfjam # depends on pdfpages, geometry
               # pdfpages and dependencies
@@ -221,15 +220,8 @@ in {
               # latex kurs tu berlin SUCC
               blindtext
 
-              # bank statement
               standalone
 
-              # times font
-              newtx fontaxes etoolbox xkeyval xstring mathtools
-              # unicode-math and deps
-              unicode-math fontspec realscripts lualatex-math xpatch
-              # quotes
-              csquotes
               # checks
               chktex lacheck;
           }))

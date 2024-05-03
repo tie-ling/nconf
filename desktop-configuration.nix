@@ -5,11 +5,13 @@
 { config, lib, pkgs, inputs, ... }:
 
 let
-  my-emacs = ((pkgs.emacsPackagesFor pkgs.emacs29-pgtk).emacsWithPackages (epkgs:
-    builtins.attrValues {
-      inherit (epkgs) mu4e nix-mode magit pyim pyim-basedict auctex julia-mode;
-      inherit (epkgs.treesit-grammars) with-all-grammars;
-    }));
+  my-emacs = ((pkgs.emacsPackagesFor pkgs.emacs29-pgtk).emacsWithPackages
+    (epkgs:
+      builtins.attrValues {
+        inherit (epkgs)
+          mu4e nix-mode magit pyim pyim-basedict auctex julia-mode;
+        inherit (epkgs.treesit-grammars) with-all-grammars;
+      }));
 
 in {
   # Use the systemd-boot EFI boot loader.
@@ -35,7 +37,6 @@ in {
       base = true;
     };
   };
-
 
   services.xserver = {
     layout = "yc";

@@ -203,12 +203,11 @@ in {
           qrencode python3 goimapnotify julia;
       } ++ [
         (pkgs.pass.withExtensions (exts: [ exts.pass-otp ]))
-        (pkgs.texliveConTeXt.withPackages (ps:
+        (pkgs-unstable.texliveConTeXt.withPackages (ps:
           builtins.attrValues {
             inherit (ps)
               collection-basic collection-mathscience collection-pictures
-              collection-luatex collection-langenglish
-              collection-langgerman
+              collection-luatex collection-langenglish collection-langgerman
               interval parskip
 
               ###### pdf manipulation tool

@@ -210,6 +210,12 @@ in {
               collection-luatex collection-langenglish collection-langgerman
               interval parskip
 
+              # https://github.com/contextgarden/context/tree/main/tex/context/fonts/mkiv
+              # OpenType fonts for ConTeXt
+              stix2-otf gentium-tug libertinus-otf
+              # Chinese font
+              fandol
+
               ###### pdf manipulation tool
               pdfjam # depends on pdfpages, geometry
               # pdfpages and dependencies
@@ -230,7 +236,7 @@ in {
   hardware.opengl.extraPackages = [ pkgs.intel-media-driver ];
   fonts.packages = builtins.attrValues {
     inherit (pkgs)
-      dejavu_fonts noto-fonts-cjk-sans gyre-fonts stix-two julia-mono xits-math;
+      dejavu_fonts noto-fonts-cjk-sans gyre-fonts stix-two julia-mono;
   };
   fonts.fontconfig = {
     defaultFonts = {

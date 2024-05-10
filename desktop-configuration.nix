@@ -132,15 +132,6 @@ in {
     ];
   };
 
-  nixpkgs.overlays = [
-    (final: prev: rec {
-      zathura_core = prev.zathuraPkgs.zathura_core.overrideAttrs
-        (o: { patches = [ ./zathura-restart_syscall.patch ]; });
-      zathura =
-        prev.zathuraPkgs.zathuraWrapper.override { inherit zathura_core; };
-    })
-  ];
-
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;

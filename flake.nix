@@ -1,5 +1,6 @@
 {
-  inputs.nixpkgs.url = "nixpkgs/master";
+  # https://status.nixos.org/
+  inputs.nixpkgs.url = "nixpkgs/ac34158a823c7596e0106c806d0b7df47885fa73";
   inputs.home-manager = {
     url = "github:nix-community/home-manager/master";
     inputs.nixpkgs.follows = "nixpkgs";

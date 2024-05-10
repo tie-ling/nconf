@@ -1,12 +1,11 @@
 {
-  inputs.nixpkgs.url = "nixpkgs/nixos-23.11";
+  inputs.nixpkgs.url = "nixpkgs/master";
   inputs.home-manager = {
-    url = "github:nix-community/home-manager/release-23.11";
+    url = "github:nix-community/home-manager/master";
     inputs.nixpkgs.follows = "nixpkgs";
   };
-  inputs.nixpkgs-unstable.url = "nixpkgs/master";
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, home-manager }@inputs: {
+  outputs = { self, nixpkgs, home-manager }@inputs: {
 
     formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt;
 

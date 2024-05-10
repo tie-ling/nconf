@@ -2,7 +2,7 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, lib, pkgs, pkgs-unstable, inputs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 
 let
   my-emacs = ((pkgs.emacsPackagesFor pkgs.emacs29-pgtk).emacsWithPackages
@@ -194,7 +194,7 @@ in {
           qrencode python3 goimapnotify julia;
       } ++ [
         (pkgs.pass.withExtensions (exts: [ exts.pass-otp ]))
-        (pkgs-unstable.texliveConTeXt.withPackages (ps:
+        (pkgs.texliveConTeXt.withPackages (ps:
           builtins.attrValues {
             inherit (ps)
               collection-basic collection-mathscience collection-pictures

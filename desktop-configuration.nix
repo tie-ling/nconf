@@ -194,29 +194,20 @@ in {
           qrencode python3 goimapnotify julia;
       } ++ [
         (pkgs.pass.withExtensions (exts: [ exts.pass-otp ]))
-        (pkgs.texliveConTeXt.withPackages (ps:
+        (pkgs.texliveMinimal.withPackages (ps:
           builtins.attrValues {
             inherit (ps)
-              collection-basic collection-mathscience collection-pictures
-              collection-luatex collection-langenglish collection-langgerman
+              collection-basic collection-fontsrecommended
+              collection-latex collection-latexrecommended
+              collection-luatex collection-mathscience
+              collection-langenglish collection-langgerman
               interval parskip
-
-              # https://github.com/contextgarden/context/tree/main/tex/context/fonts/mkiv
-              # OpenType fonts for ConTeXt
-              stix2-otf gentium-tug libertinus-otf
-              # Chinese font
-              fandol
 
               ###### pdf manipulation tool
               pdfjam # depends on pdfpages, geometry
               # pdfpages and dependencies
               pdfpages eso-pic atbegshi pdflscape
               ######
-
-              # latex kurs tu berlin SUCC
-              blindtext
-
-              standalone
 
               # checks
               chktex lacheck;

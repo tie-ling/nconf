@@ -203,7 +203,7 @@ in {
               interval parskip
 
               # times font
-              newtx fontaxes etoolbox xkeyval xstring mathtools
+              newtx fontaxes etoolbox xkeyval xstring mathtools xpatch
               # unicode math and deps
               unicode-math fontspec realscripts lualatex-math
               # quotes

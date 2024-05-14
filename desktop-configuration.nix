@@ -197,11 +197,18 @@ in {
         (pkgs.texliveMinimal.withPackages (ps:
           builtins.attrValues {
             inherit (ps)
-              collection-basic collection-fontsrecommended
-              collection-latex collection-latexrecommended
-              collection-luatex collection-mathscience
+              collection-basic
+              collection-mathscience
               collection-langenglish collection-langgerman
               interval parskip
+
+              # times font
+              newtx fontaxes etoolbox xkeyval xstring mathtools
+              # unicode math and deps
+              unicode math fontspec realscripts lualatex math
+              # quotes
+              csquotes
+
 
               ###### pdf manipulation tool
               pdfjam # depends on pdfpages, geometry

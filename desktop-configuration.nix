@@ -197,7 +197,7 @@ in {
         (pkgs.texliveMinimal.withPackages (ps:
           builtins.attrValues {
             inherit (ps)
-              collection-basic
+              collection-basic collection-luatex
               collection-mathscience
               collection-langenglish collection-langgerman
               interval parskip
@@ -205,7 +205,7 @@ in {
               # times font
               newtx fontaxes etoolbox xkeyval xstring mathtools
               # unicode math and deps
-              unicode-math fontspec realscripts lualatex math
+              unicode-math fontspec realscripts lualatex-math
               # quotes
               csquotes
 

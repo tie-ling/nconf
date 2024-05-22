@@ -194,7 +194,7 @@ in {
           qrencode python3 goimapnotify julia;
       } ++ [
         (pkgs.pass.withExtensions (exts: [ exts.pass-otp ]))
-        (pkgs.texliveMinimal.withPackages (ps:
+        (pkgs.texliveConTeXt.withPackages (ps:
           builtins.attrValues {
             inherit (ps)
               collection-basic collection-luatex

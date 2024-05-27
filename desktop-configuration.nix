@@ -208,6 +208,8 @@ in {
               unicode-math fontspec realscripts lualatex-math
               # quotes
               csquotes
+              # koma
+              komascript
 
 
               ###### pdf manipulation tool

@@ -209,7 +209,7 @@ in {
               # quotes
               csquotes
               # koma
-              komascript
+              koma-script
 
 
               ###### pdf manipulation tool

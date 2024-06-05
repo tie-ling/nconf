@@ -197,10 +197,8 @@ in {
         (pkgs.texliveConTeXt.withPackages (ps:
           builtins.attrValues {
             inherit (ps)
-              collection-basic collection-luatex
-              collection-mathscience
-              collection-langenglish collection-langgerman
-              interval parskip
+              collection-basic collection-luatex collection-mathscience
+              collection-langenglish collection-langgerman interval parskip
 
               # times font
               newtx fontaxes etoolbox xkeyval xstring mathtools xpatch
@@ -210,7 +208,6 @@ in {
               csquotes
               # koma
               koma-script
-
 
               ###### pdf manipulation tool
               pdfjam # depends on pdfpages, geometry

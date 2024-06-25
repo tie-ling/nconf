@@ -1,6 +1,6 @@
 {
   # https://status.nixos.org/
-  inputs.nixpkgs.url = "nixpkgs/b3b2b28c1daa04fe2ae47c21bb76fd226eac4ca1";
+  inputs.nixpkgs.url = "nixpkgs/805a384895c696f802a9bf5bf4720f37385df547";
   inputs.home-manager = {
     url = "github:nix-community/home-manager/release-24.05";
     inputs.nixpkgs.follows = "nixpkgs";
@@ -18,7 +18,7 @@
 
     nixosConfigurations.yinzhou = nixpkgs.lib.nixosSystem
       (import ./desktop.nix {
-        hdd = "ata-INTEL_SSDSCKKF256G8H_BTLA81651HQR256J";
+        hdd = "nvme-SAMSUNG_MZVL2512HCJQ-00BL2_S64JNF0TA65903";
         hostname = "yinzhou";
         inherit inputs;
       });

@@ -2,7 +2,8 @@
   # https://status.nixos.org/
   inputs.nixpkgs.url = "nixpkgs/805a384895c696f802a9bf5bf4720f37385df547";
   inputs.home-manager = {
-    url = "github:nix-community/home-manager/release-24.05";
+    # https://github.com/nix-community/home-manager/tree/release-24.05
+    url = "github:nix-community/home-manager/a1fddf0967c33754271761d91a3d921772b30d0e";
     inputs.nixpkgs.follows = "nixpkgs";
   };
 

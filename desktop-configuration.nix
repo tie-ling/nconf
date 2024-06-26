@@ -5,7 +5,7 @@
 { config, lib, pkgs, inputs, ... }:
 
 let
-  my-emacs = ((pkgs.emacsPackagesFor pkgs.emacs29-pgtk).emacsWithPackages
+  my-emacs = ((pkgs.emacsPackagesFor pkgs.emacs-nox).emacsWithPackages
     (epkgs:
       builtins.attrValues {
         inherit (epkgs)

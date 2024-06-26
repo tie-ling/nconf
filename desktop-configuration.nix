@@ -57,7 +57,12 @@ in {
     };
     # workaround for hardened profile
     logrotate.checkConfig = false;
-    tlp.enable = true;
+    tlp = {
+      enable = true;
+      settings = {
+        STOP_CHARGE_THRESH_BAT0 = 1;
+      };
+    };
     yggdrasil = {
       enable = true;
       openMulticastPort = false;

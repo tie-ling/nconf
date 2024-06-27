@@ -226,7 +226,8 @@ in {
       ];
     };
   };
-  hardware.opengl.extraPackages = [ pkgs.intel-media-driver ];
+  hardware.opengl.driSupport = true;
+  hardware.opengl.extraPackages = [ pkgs.intel-media-driver pkgs.amdvlk ];
   fonts.packages = builtins.attrValues {
     inherit (pkgs)
       dejavu_fonts noto-fonts-cjk-sans gyre-fonts stix-two julia-mono;

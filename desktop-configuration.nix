@@ -127,7 +127,7 @@ in {
     package = pkgs.ungoogled-chromium;
     commandLineArgs = [
       "--ozone-platform-hint=auto"
-      "--enable-features=VaapiVideoDecodeLinuxGL,VaapiVideoEncoder,TouchpadOverscrollHistoryNavigation"
+      "--enable-features=VaapiVideoDecodeLinuxGL,VaapiVideoEncoder,TouchpadOverscrollHistoryNavigation,VaapiVideoDecoder,VaapiIgnoreDriverChecks,Vulkan,DefaultANGLEVulkan,VulkanFromANGLE"
       "--js-flags=--jitless"
       "--start-maximized"
       "--incognito"
